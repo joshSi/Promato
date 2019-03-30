@@ -1,9 +1,7 @@
 import pyrebase
 from flask import Flask, request, render_template, redirect
+from config import config #config.py is a dictionary containing
 app = Flask(__name__)
-config = {
-    #Get private config key from firebase
-}
 
 firebase = pyrebase.initialize_app(config)
 
