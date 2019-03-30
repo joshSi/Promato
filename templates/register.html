@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div class="container">
+            <div class="alert alert-fail">
+                {% if fail %}
+                    {{fail}}
+                {% endif %}
+            </div>
+            <form action = "/register" method = "post">
+                <label for = "inputEmail">Enter Email Address:</label>
+                <input type = "email" id = "inputEmail" name = "user_email" placeholder = "Email address">
+                <br>
+                <label for = "inputPassword">Enter Password:</label>
+                <input type = "password" id = "inputPassword" name = "user_pass" placeholder = "Password">
+                <br>
+                <label for = "inputName">Enter Display Name:</label>
+                <input type = "username" id = "inputName" name = "user_name" placeholder = "Username">
+                <br>
+                <button class = "btn btn-lg btn-primary btn-block" type = "submit">Create Account</button>
+            </form>
+        </div>
+    </body>
+</html>
