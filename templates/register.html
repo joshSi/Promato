@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/static/home.css">
+        <title> Promato </title>
+    </head>
     <body>
         <div class="container">
             <div class="alert alert-fail">
@@ -7,6 +11,7 @@
                     {{fail}}
                 {% endif %}
             </div>
+            <input type="button" onclick="window.location.href='/';" value="Back">
             <form action = "/register" method = "post">
                 <label for = "inputEmail">Enter Email Address:</label>
                 <input type = "email" id = "inputEmail" name = "user_email" placeholder = "Email address">

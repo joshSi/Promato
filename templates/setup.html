@@ -1,13 +1,41 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/static/home.css">
+        <title> Promato </title>
+    </head>
     <body>
-        <title></title>
-        <div class="container">
-            <form action = "/home" method = "post">
-                <label for = "nextTask">Input your task for the next hours:</label>
-                <input type = "task" id = "nextTask" name = "user_task" placeholder = "Do math homework">
-                <button class = "btn btn-lg btn-primary btn-block" type = "submit">Start Task!</button>
-            </form>
-        </div>
+      <h1> The Pomodoro Technique </h1>
+
+      <p>
+        The Pomodoro Technique distributes the total studying time into 25 minute
+        intervals, separated by 5 minute short break. Each of these 25 + 5 minutes
+        cycle is called a Pomodoro - tomatoes in Italian! Collect special tomotoes by studying!
+      </p>
+
+      <div class="container">
+            <br>
+            <form method = "post">
+            <div class="container">
+            <strong> 1. Specify how many Pomodoro cycles (30 minute intervals) you need to accomplish your goal: </strong>
+            <select name="pomodoro_count" style="padding:2px">
+                <option value=1>1 pomodoro</option>
+                <option value=2>2 pomodoros</option>
+                <option value=3>3 pomodoros</option>
+                <option value=4>4 pomodoros</option>
+                <option value=5>5 pomodoros</option>
+                <option value=6>6 pomodoros</option>
+                <option value=7>7 pomodoros</option>
+                <option value=8>8 pomodoros</option>
+                <option value=9>9 pomodoros</option>
+                <option value=10>10 pomodoros</option>
+            </select>
+            </div>
+
+              <strong> 2. What productive activity will you be doing? </strong>
+              <input type = "task" name = "user_task" placeholder = "Do math homework">
+              <button class = "btn btn-lg btn-primary btn-block" type = "submit">Start Task!</button>
+          </form>
+      </div>
     </body>
 </html>

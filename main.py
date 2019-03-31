@@ -8,10 +8,11 @@ firebase = fyrebase.initialize_app(config)
 auth = firebase.auth()
 db = firebase.database()
 user = False
-
+work_timer = 10
+rest_timer = 5
 @app.route("/", methods = ['GET', 'POST'])
 def splash():
-    return "HOMEPAGE"
+    return render_template('splash.html')
 
 @app.route("/login", methods = ['GET', 'POST'])
 def login():
@@ -52,24 +53,34 @@ def home():
 @app.route("/setup", methods = ['GET', 'POST'])
 def setup():
     global user
+    global pomo_count
     if user == False:
         return redirect('/')
     if request.method == 'POST':
-        data = {"cycles": request.form['user_task'],
+        pomo_count = int(request.form['pomodoro_count'])
+        data = {"cycles": pomo_count,
             "task": request.form['user_task']}
         results = db.child("users").child(user['displayName']).push(data)
-        return render_template('setup.html')
+        return redirect('/timer')
     return render_template('setup.html')
 
 @app.route("/timer", methods = ['GET', 'POST'])
 def time():
+    global work_timer
+    global pomo_count
+
+    work_timer -= 1
     if user == False:
         return redirect('/')
-    return render_template('setup.html')
+    if work_timer <= 0:
+        pomo_count -= 1
+    return render_template('timer.html')
 
 @app.route("/collection")
 def collection():
-    return render_template('index.html')
+    if user == False:
+        return redirect('/')
+    return render_template('collection.html')
 
 if __name__ == "__main__":
     app.run(debug = True)
