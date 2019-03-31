@@ -1,12 +1,23 @@
 <!DOCTYPE html>
 <html>
+<head>
+	<link rel="stylesheet" type="text/css" href="/static/home.css">
+	<title> Promato </title>
+</head>
     <body>
-        <div class="container">
-            <form action = "/home" method = "post">
-                <label for = "nextTask">Input your task for the next hours:</label>
-                <input type = "task" id = "nextTask" name = "user_task" placeholder = "Do math homework">
-                <button class = "btn btn-lg btn-primary btn-block" type = "submit">Start Task!</button>
-            </form>
-        </div>
+		
+		<h1> Promato </h1>
+		
+		<img src="/static/promato.png" title="icon" style="width:200px;height:200px;" >
+		
+		<div id="intro">
+		
+		<p>
+			Hello {{welcome_name}}!
+		</p>
+
+		</div>
+			<input type="button" onclick="window.location.href='/setup';" value="Start">
+	  	<input type="button" onclick="window.location.href='/collection';" value="Collection">
     </body>
 </html>

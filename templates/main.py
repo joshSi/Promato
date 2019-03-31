@@ -1,9 +1,9 @@
-import fyrebase
+import firebase
 from flask import Flask, request, render_template, redirect
 from config import config #config.py is a dictionary containing
 app = Flask(__name__)
 
-firebase = fyrebase.initialize_app(config)
+firebase = firebase.initialize_app(config)
 
 auth = firebase.auth()
 db = firebase.database()
@@ -42,7 +42,7 @@ def register():
             return render_template('register.html', fail = invalid)
     return render_template('register.html')
 
-@app.route("/home", methods = ['GET', 'POST'])
+@app.route("/home")
 def home():
     global user
     if user == False:
@@ -66,10 +66,6 @@ def time():
     if user == False:
         return redirect('/')
     return render_template('setup.html')
-
-@app.route("/collection")
-def collection():
-    return render_template('index.html')
 
 if __name__ == "__main__":
     app.run(debug = True)
